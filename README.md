@@ -6,8 +6,6 @@ A clean template for developing Godot games with C++ extensions using CMake.
 
 ```bash
 # Clone and setup
-git clone <your-repo-url>
-cd godot-cpp-template
 git submodule update --init --recursive
 
 # Build C++ extension
