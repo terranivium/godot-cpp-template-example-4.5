@@ -1,71 +1,48 @@
-# Godot auto generated files
-*.gen.*
-.godot/
-
-# Ignore library files but not the gdextension file
-demo/bin/*
-!demo/bin/android
-demo/bin/android/*
-!demo/bin/android/.gitkeep
-!demo/bin/linux
-demo/bin/linux/*
-!demo/bin/linux/.gitkeep
-!demo/bin/macos
-demo/bin/macos/*
-!demo/bin/macos/.gitkeep
-!demo/bin/windows
-demo/bin/windows/*
-!demo/bin/windows/.gitkeep
-!demo/bin/*.gdextension
-
-# Ignore build output at project root level
-bin/
-.sconsign*.dblite
-
-# Ignore custom.py
-custom.py
-
-# Ignore generated compile_commands.json
-compile_commands.json
-
-# Ignore files generated for documentation
-/src/gen
-
-# Binaries
-*.o
-*.os
-*.so
-*.obj
-*.bc
-*.pyc
-*.dblite
-*.pdb
-*.lib
-*.config
-*.creator
-*.creator.user
-*.files
-*.includes
-*.idb
-*.exp
-
-# Other stuff
-*.log
-
-# VSCode
-.vscode/*
-!.vscode/extensions.json
-.DS_Store
-
-# Jetbrains
-.idea/
-
-# Cmake
-cmake-build*
-CMakeUserPresets.json
+# Build directories
 build/
+bin/
+*.o
+*.obj
+*.lib
+*.dll
+*.so
+*.dylib
+*.exp
+*.pdb
 
-# Test files (optional - remove if you want to keep them)
-demo/test_extension.*
-demo/example.gd.uid
-demo/test_extension.gd.uid
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# IDE files
+.vscode/
+.idea/
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Godot
+.godot/
+*.tmp
+*.import
+
+# Generated files
+*.gen.*
+src/gen/
+
+# Logs
+*.log

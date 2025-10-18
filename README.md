@@ -1,40 +1,71 @@
-# godot-cpp template
-This repository serves as a quickstart template for GDExtension development with Godot 4.0+.
+# Godot C++ Template
 
-## Contents
-* An empty Godot project (`demo/`)
-* godot-cpp as a submodule (`godot-cpp/`)
-* GitHub Issues template (`.github/ISSUE_TEMPLATE.yml`)
-* GitHub CI/CD workflows to publish your library packages when creating a release (`.github/workflows/builds.yml`)
-* preconfigured source files for C++ development of the GDExtension (`src/`)
-* setup to automatically generate `.xml` files in a `doc_classes/` directory to be parsed by Godot as [GDExtension built-in documentation](https://docs.godotengine.org/en/stable/tutorials/scripting/gdextension/gdextension_docs_system.html)
+A clean template for developing Godot games with C++ extensions using CMake.
 
-## Usage - Template
+## 🚀 Quick Start
 
-To use this template, log in to GitHub and click the green "Use this template" button at the top of the repository page.
-This will let you create a copy of this repository with a clean git history. Make sure you clone the correct branch as these are configured for development of their respective Godot development branches and differ from each other. Refer to the docs to see what changed between the versions.
+```bash
+# Clone and setup
+git clone <your-repo-url>
+cd godot-cpp-template
+git submodule update --init --recursive
 
-For getting started after cloning your own copy to your local machine, you should: 
-* initialize the godot-cpp git submodule via `git submodule update --init`
-* change the name of your library
-  * change the name of the compiled library file inside the `SConstruct` file by modifying the `libname` string.
-  * change the pathnames of the to be loaded library name inside the `demo/bin/example.gdextension` file. By replacing `EXTENSION-NAME` only to the name specified in your `SConstruct` file.
-  * change the name of the `demo/bin/example.gdextension` file
-* change the `entry_symbol` string inside your `demo/bin/your-extension.gdextension` file to be configured for your GDExtension name. This should be the same as the `GDExtensionBool GDE_EXPORT` external C function. As the name suggests, this sets the entry function for your GDExtension to be loaded by the Godot editors C API.
-* register the classes you want Godot to interact with inside the `register_types.cpp` file in the initialization method (here `initialize_gdextension_types`) in the syntax `GDREGISTER_CLASS(CLASS-NAME);`.
+# Build C++ extension
+cmake -B build -DCMAKE_BUILD_TYPE=Debug
+cmake --build build --config Debug
 
-### Configuring an IDE 
-You can develop your own extension with any text editor and by invoking scons on the command line, but if you want to work with an IDE (Integrated Development Environment), you can use a compilation database file called `compile_commands.json`. Most IDEs should automatically identify this file, and self-configure appropriately.
-To generate the database file, you can run one of the following commands in the project root directory:
-```shell
-# Generate compile_commands.json while compiling
-scons compiledb=yes
-
-# Generate compile_commands.json without compiling
-scons compiledb=yes compile_commands.json
+# Open in Godot
+# Open example-project/ in Godot and run the scene
 ```
 
-## Usage - Actions
+## 📁 Structure
 
-This repository comes with a GitHub action that builds the GDExtension for cross-platform use. It triggers automatically for each pushed change. You can find and edit it in [builds.yml](.github/workflows/builds.yml).
-After a workflow run is complete, you can find the file `godot-cpp-template.zip` on the `Actions` tab on GitHub.
+```
+├── src/                          # C++ Source Code
+│   ├── cube_renderer.h/cpp       # Example C++ class
+│   └── register_types.cpp        # Class registration
+├── example-project/              # Godot Game Project
+│   ├── project.godot             # Game configuration
+│   ├── example.tscn              # 3D scene with lighting
+│   └── example.gd                # GDScript using C++ class
+└── CMakeLists.txt                # CMake build configuration
+```
+
+## 🔧 Adding New C++ Classes
+
+1. **Create your class** in `src/your_class.h` and `src/your_class.cpp`
+2. **Register it** in `src/register_types.cpp`:
+   ```cpp
+   GDREGISTER_CLASS(YourClass);
+   ```
+3. **Update CMakeLists.txt** to include your files
+4. **Rebuild**: `cmake --build build --config Debug`
+5. **Restart Godot** to see your new class
+
+## 🎯 Development Workflow
+
+**C++ Development Cycle:**
+1. Write C++ code in `src/`
+2. Build extension with CMake
+3. Restart Godot (required for C++ changes)
+4. Test in editor
+5. Repeat
+
+**Note:** Unlike GDScript, C++ extensions require a restart to see changes.
+
+## 🛠️ Prerequisites
+
+- **CMake 3.17+**
+- **Python 3.4+** (for godot-cpp bindings)
+- **Git** (for submodules)
+- **C++ Compiler** (Visual Studio, GCC, or Clang)
+- **Godot 4.5+**
+
+## 📚 Resources
+
+- [Godot C++ Documentation](https://docs.godotengine.org/en/stable/tutorials/scripting/gdextension/)
+- [CMake Documentation](https://cmake.org/documentation/)
+
+---
+
+**Happy Game Development!** 🎮✨

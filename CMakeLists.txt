@@ -5,8 +5,8 @@ cmake_minimum_required(VERSION 3.17)
 if(CMAKE_C_COMPILER)
 endif()
 
-set(LIBNAME "mygame" CACHE STRING "The name of the library")
-set(GODOT_PROJECT_DIR "demo" CACHE STRING "The directory of a Godot project folder")
+set(LIBNAME "godot_extension" CACHE STRING "The name of the library")
+set(GODOT_PROJECT_DIR "example-project" CACHE STRING "The directory of a Godot project folder")
 
 # Make sure all the dependencies are satisfied
 find_package(Python3 3.4 REQUIRED)
@@ -49,8 +49,8 @@ target_sources(${LIBNAME}
     PRIVATE
     src/register_types.cpp
     src/register_types.h
-    src/example_class.cpp
-    src/example_class.h
+    src/cube_renderer.cpp
+    src/cube_renderer.h
 )
 
 # Fetch a list of the xml files to use for documentation and add to our target
