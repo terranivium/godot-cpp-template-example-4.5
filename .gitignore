@@ -39,6 +39,7 @@ __pycache__/
 .godot/
 *.tmp
 *.import
+*.uid
 
 # Generated files
 *.gen.*
